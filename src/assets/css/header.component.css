@@ -1,0 +1,9 @@
+.navbar-brand, .dropdown-item, .nav-link{
+    cursor: pointer;
+}
+
+#spanTitle{
+    margin-top: 100%;
+    margin-left: 5%;
+    line-height: normal;
+}

@@ -1,0 +1,11 @@
+#registrar{
+    margin-top: 5%;
+    width: 30%;
+    margin-left: 35%;
+}
+
+#iniciarSesion:hover{
+    color: #0000EE;
+    text-decoration: underline;
+    cursor: pointer;
+}

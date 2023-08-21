@@ -1,0 +1,44 @@
+.card{
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+
+fa-icon{
+    margin: 5%;
+}
+
+fa-icon:hover{
+    cursor: pointer;
+}
+
+#logoInfo:hover{
+    color: #28a745;
+}
+
+#logoModificar:hover{
+    color: #ffc107;
+}
+
+#logoEliminar:hover{
+    color: #dc3545;
+}
+
+#insertar{
+    float: right;
+}
+
+#modalBodyInfo{
+    display: flex;
+    flex-grow: initial;
+    width: 100%;
+}
+
+#portadaLibroInfo{
+    width: 15%;
+}
+
+.datosLibro{
+    width: 42.5%;
+}

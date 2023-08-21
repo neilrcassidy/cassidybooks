@@ -1,0 +1,19 @@
+body {
+    background-color: #343434;
+}
+
+#cover {
+    width: 100%;
+    height: 100%;
+    margin-left: 1.66%;
+}
+  
+#cover > img {
+    width: 45%;
+    margin: 1.66%;
+    cursor: pointer;
+}
+
+.carousel-item{
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div (click)="opcionEventos()" class="carousel-item active">
+        <img class="d-block w-100 h-50" src="../../assets/img/valencia.jpg" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+            <h2>Evento en Valencia</h2>
+            <p>Más información aquí!</p>
+        </div>
+      </div>
+      <div (click)="opcionEventos()" class="carousel-item">
+        <img class="d-block w-100 h-50" src="../../assets/img/barcelona.jpg" alt="Second slide">
+        <div class="carousel-caption d-none d-md-block">
+            <h2>Evento en Barcelona</h2>
+            <p>Más información aquí!</p>
+        </div>
+      </div>
+      <div  (click)="opcionEventos()" class="carousel-item">
+        <img class="d-block w-100 h-50" src="../../assets/img/madrid.jpg" alt="Third slide">
+        <div class="carousel-caption d-none d-md-block">
+            <h2>Evento en Madrid</h2>
+            <p>Más información aquí!</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+<div id="cover">
+    <img (click)="opcionLibros('')" src="../../assets/img/milveces.png">
+    <img (click)="opcionLibros('ofertas')" src="../../assets/img/sanva.png">
+    <img (click)="opcionBlog()" src="../../assets/img/semana.png">
+    <img (click)="opcionBlog()" src="../../assets/img/consejos.png">
+</div>

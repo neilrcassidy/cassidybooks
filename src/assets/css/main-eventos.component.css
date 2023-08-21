@@ -1,0 +1,25 @@
+#paginaEventos{
+    width: 70%;
+    margin-left: 15%;
+}
+
+#titulo{
+    margin-top: 2%;
+    margin-left: 1.6%;
+}
+
+.detalles{
+    font-weight: normal;
+}
+
+/*#crop {
+    width: 200px;
+    height: 250px;
+    overflow: hidden;
+}
+
+#thumbnail {
+    width: 400px;
+    height: 300px;
+    margin: -75px 0 0 -100px;
+}*/

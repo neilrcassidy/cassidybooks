@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<div class="card">
+    <div class="card-header">
+        <b>Subir Imagen</b>
+    </div>
+    <form>
+        <div class="formGroup">
+            <input type="file" class="form-control" name="image" (change)="selectImage($event)">
+        </div>
+        <button id="subir" type="submit" class="btn btn-primary" (click)="onSubmit()">Subir</button>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<div id="paginaBlog">
+  <h2 id="titulo">Blog</h2>
+  <div id="posts">
+    <div class="row mb-2">
+      <div class="col-md-6" *ngFor="let post of posts">
+        <div
+          class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <h3 class="mb-0">{{post.titulo}}</h3>
+            <div class="mb-1 text-muted">{{post.autor}} | {{post.fecha}}</div>
+            <p class="card-text mb-auto">{{post.texto | slice:0:120}}...</p>
+            <a href="#" class="stretched-link"  data-toggle="modal" data-target="#exampleModal" (click)="seleccionaPost(post._id)">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <!-- <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img"
+              aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+              <title>Placeholder</title>
+              <rect width="100%" height="100%" fill="#55595c" />
+              <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+            </svg> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{postSeleccionado.titulo}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <img *ngIf="postSeleccionado.imagen!=''" src="/uploads/{{postSeleccionado.imagen}}" class="card-img-top" alt="..." height="25%" width="100%">
+      <div class="modal-body">
+        <h6>{{postSeleccionado.autor}} | {{postSeleccionado.fecha}}</h6>
+        {{postSeleccionado.texto}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

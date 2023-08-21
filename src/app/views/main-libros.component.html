@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<div id="paginaLibros">
+  <div id="libros">
+    <h2 id="titulo">{{this.title}}</h2>
+    <div id="productos" *ngFor="let libro of libros">
+      <div class="container d-flex justify-content-center mt-50 mb-50">
+        <div class="row">
+          <div class="col-md-10">
+            <div class="card card-body">
+              <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
+                <div class="mr-2 mb-3 mb-lg-0">
+                  <img id="portadaLibro" src="/uploads/{{libro.portada}}" width="100" height="150" alt="" (click)="consultar(libro._id)" data-toggle="modal" data-target="#modalInfo">
+                </div>
+                <div class="media-body">
+                  <h5 id="tituloLibro" class="media-title font-weight-semibold" (click)="consultar(libro._id)" data-toggle="modal" data-target="#modalInfo">{{libro.titulo}}<a id="autorLibro" class="font-weight-light h6"> | {{libro.autor}}</a></h5>
+                  <ul class="list-inline list-inline-dotted mb-2 mb-lg-2">
+                    <li class="list-inline-item">ISBN: {{libro._isbn}}</li><br>
+                    <li class="list-inline-item">Tipo: {{libro.tipo | titlecase}}</li><br>
+                    <li class="list-inline-item">Editorial: {{libro.editorial | titlecase}}</li><br>
+                    <li class="list-inline-item">Genero: {{libro.genero | titlecase}}</li>
+                  </ul>
+                  <!-- No entiendo por que pero el tamaño de las cajas de producto depende de este <p> -->
+                  <p id="barraTamano" class="mb-3">--------------------------------------------------------------------------------
+                    -----------------------------------------------</p>
+                </div>
+                <div id="rightSide" class="mt-3 mt-lg-0 ml-lg-3 text-center">
+                  <br>
+                  <h3 *ngIf="libro.descuento==0; else descuento" id="precio" class="mb-0 font-weight-semibold">{{libro.precio | currency:'EUR'}}</h3>
+                  <ng-template #descuento>
+                    <h3 id="precio" class="mb-0 font-weight-semibold"><h6 id="precioOriginal">{{libro.precio | currency: 'EUR'}}</h6> {{libro.precio*(1-(libro.descuento/100)) | currency:'EUR'}}</h3>
+                  </ng-template>
+                  <div>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                  </div>
+                  <button disabled="{{notLoggedIn}}" type="button" class="btn btn-warning mt-4 text-white" (click)="agregarAlCarrito(libro._id)"><fa-icon [icon]="faCartPlus"></fa-icon> Agregar al Carrito</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Info -->
+<div class="modal fade" id="modalInfo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Titulo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modalBodyInfo" class="modal-body">
+        <div id="portadaLibroInfo">
+          <img src="/uploads/{{libroSeleccionado.portada}}" width="100" height="150" alt="">
+        </div>
+        <div class="datosLibro">
+          <p>ID: {{libroSeleccionado._id}}</p>
+          <p>ISBN: {{libroSeleccionado._isbn}}</p>
+          <p>Titulo: {{libroSeleccionado.titulo}}</p>
+          <p>Autor: {{libroSeleccionado.autor}}</p>
+          <p>Editorial: {{libroSeleccionado.editorial}}</p>
+          <p>Fecha de Publicación: {{libroSeleccionado.fecha}}</p>
+        </div>
+        <div class="datosLibro">
+          <p>Edición: {{libroSeleccionado.edicion}}</p>
+          <p>Genero: {{libroSeleccionado.genero}}</p>
+          <p>Precio: {{libroSeleccionado.precio}}€</p>
+          <p>Descuento: {{libroSeleccionado.descuento}}%</p>
+          <p>Tipo: {{libroSeleccionado.tipo}}</p>
+          <p>Stock: {{libroSeleccionado.stock}}</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<div id="paginaEventos">
+    <h2 id="titulo">Eventos</h2>
+    <div id="eventos">
+        <div class="row mb-2">
+            <div class="col-md-6" *ngFor="let evento of eventos">
+              <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                <div class="col p-4 d-flex flex-column position-static">
+                  <h3 class="mb-0">{{evento.nombre}}</h3>
+                  <div class="mb-1 text-muted">{{evento.ubicacion}} | {{evento.fecha}}</div>
+                  <p class="card-text mb-auto">{{evento.descripcion}}</p>
+                  <a href="#" class="stretched-link" data-toggle="modal" data-target="#exampleModal" (click)="seleccionaEvento(evento._id)">Continue reading</a>
+                </div>
+                <div class="col-auto d-none d-lg-block">
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{eventoSeleccionado.nombre}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <img class="imagenEvento" *ngIf="eventoSeleccionado.imagen!=''" src="/uploads/{{eventoSeleccionado.imagen}}" class="card-img-top" alt="">
+      <div class="modal-body">
+        <h6>Fecha: <span class="detalles">{{eventoSeleccionado.fecha}}</span></h6>
+        <h6>Ubicación: <span class="detalles">{{eventoSeleccionado.ubicacion}}</span></h6>
+        <h6>Organización: <span class="detalles">{{eventoSeleccionado.organizacion}}</span></h6>
+        <h6>Descripcion: </h6> {{eventoSeleccionado.descripcion}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

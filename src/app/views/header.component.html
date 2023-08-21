@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" (click)="opcionInicio()">
+    <img src="../../assets/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Cassidy Books
+  </a>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" (click)="opcionInicio()">
+        <a class="nav-link" value="inicio">Inicio</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" value="libros" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Libros
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="opcionLibros('fisico')" value="fisico">Físicos</a>
+          <a class="dropdown-item" (click)="opcionLibros('ebook')" value="ebook">eBooks</a>
+          <a class="dropdown-item" (click)="opcionLibros('audio')" value="audio">Audio</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="opcionLibros('')" value="todos">Todos</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="opcionLibros('ofertas')" value="ofertas">Ofertas</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="opcionEventos()" value="eventos">Eventos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="opcionBlog()" value="blog">Blog</a>
+      </li>
+    </ul>
+    <form [formGroup]="formBuscar" class="form-inline my-2 my-lg-0 mr-sm-2 col-6">
+      <input formControlName="busqueda" class="form-control mr-sm-2 col-10" type="search" placeholder="Buscar..." aria-label="Search">
+      <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" (click)="opcionBuscar()"><fa-icon [icon]="faSearch"></fa-icon></button>
+    </form>
+    <div>
+    <div *ngIf="!loggedin; else loginTrue">
+      <button class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2" (click)="opcionLogin()"><fa-icon [icon]="faUser"></fa-icon> Iniciar Sesión / Registrar</button>
+    </div>
+    <ng-template #loginTrue>
+      <button class="btn btn-outline-primary my-2 my-sm-0 mr-sm-2" (click)="opcionCarrito()"><fa-icon [icon]="faShoppingCart"></fa-icon> Carrito</button>
+      <button class= "btn btn-outline-primary my-2 my-sm-0 mr-sm-2" (click)="opcionLogout()"><fa-icon [icon]="faUserSlash"></fa-icon> Cerrar Sesión</button>
+    </ng-template>
+    </div>
+  </div>
+</nav>

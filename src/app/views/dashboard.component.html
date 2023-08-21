@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<div id="dashboard">
+  <div id="menu">
+    <div class="card">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a class="nav-link" (click)="opcionLibros()">Libros</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" (click)="opcionEventos()">Eventos</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" (click)="opcionPosts()">Blog Posts</a>
+        </li>
+        <li class="list-group-item">
+          <a class="nav-link" (click)="opcionSubirImagen()">Subir Imagen</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="crud">
+    <router-outlet></router-outlet>
+  </div>
+</div>
